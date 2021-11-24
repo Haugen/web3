@@ -22,9 +22,11 @@ const input = {
 };
 
 const output = solc.compile(JSON.stringify(input));
-const contractOutput = JSON.parse(output).contracts.Inbox;
+// Write compiled contract to file for inspection help.
 fs.writeFileSync('./output.json', output);
 
-console.log(contractOutput);
+// Prepare the abi and bytecode for being exported.
+const abi = JSON.parse(output).contracts.Inbox.Inbox.abi;
+const bytecode = JSON.parse(output).contracts.Inbox.Inbox.evm.bytecode.object;
 
-module.exports = contractOutput;
+module.exports = { abi, bytecode };

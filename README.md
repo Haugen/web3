@@ -11,3 +11,4 @@ A repository for notes on Solidity, as well as small practice projects.
 - https://infura.io/ Provides Ethereum nodes to query during development.
 - https://web3js.readthedocs.io/ Web3 JS documentation.
 - https://docs.soliditylang.org/ Solidity documentation.
+- https://www.trufflesuite.com/docs/ganache/quickstart Ganache, part of the Truffle suite. Used for running a local Ethereum network.
