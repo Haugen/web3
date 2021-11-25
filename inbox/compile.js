@@ -22,6 +22,7 @@ const input = {
 };
 
 const output = solc.compile(JSON.stringify(input));
+
 // Write compiled contract to file for inspection help.
 fs.writeFileSync('./output.json', output);
 

@@ -9,6 +9,7 @@ const { abi, bytecode } = require('../compile');
 
 let account;
 let inbox;
+const INITIAL_MESSAGE = 'Hi there!';
 
 beforeEach(async () => {
   // Get an account from the available Ganache accounts.
@@ -20,13 +21,26 @@ beforeEach(async () => {
   inbox = await new web3.eth.Contract(abi)
     .deploy({
       data: bytecode,
-      arguments: ['Hi there!'],
+      arguments: [INITIAL_MESSAGE],
     })
     .send({ from: account, gas: '1000000' });
 });
 
-describe('Main test', () => {
-  it('Tests', () => {
-    console.log(inbox);
+describe('Inbox', () => {
+  it('Deploys a contract', () => {
+    assert.ok(inbox.options.address);
+  });
+
+  it('Has a default message', async () => {
+    const message = await inbox.methods.message().call();
+    assert.equal(message, INITIAL_MESSAGE);
+  });
+
+  it('Can update the message', async () => {
+    await inbox.methods
+      .setMessage('New message')
+      .send({ from: account, gas: '1000000' });
+    const message = await inbox.methods.message().call();
+    assert.equal(message, 'New message');
   });
 });
