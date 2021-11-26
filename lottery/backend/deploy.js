@@ -1,4 +1,5 @@
 require('dotenv').config();
+const util = require('util');
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 const Web3 = require('web3');
 const { abi, bytecode } = require('./compile');
@@ -18,6 +19,11 @@ const deploy = async () => {
     .deploy({ data: bytecode })
     .send({ from: account, gas: '1000000' });
 
+  // The util library is needed here to show the full output. Without it, the
+  // abi was not outputted properly to be used to connect with our contract.
+  console.log(
+    util.inspect(abi, { showHidden: false, depth: null, colors: true })
+  );
   console.log('Contract address:', result.options.address);
   provider.engine.stop();
 };
