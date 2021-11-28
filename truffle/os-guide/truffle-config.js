@@ -18,7 +18,7 @@
  *
  */
 
-const { alchemyApiKey, mnemonic } = require('./secrets.json');
+const { infuraApiKey, mnemonic } = require('./secrets.json');
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 
 module.exports = {
@@ -48,7 +48,7 @@ module.exports = {
       provider: () =>
         new HDWalletProvider(
           mnemonic,
-          `https://rinkeby.infura.io/v3/${alchemyApiKey}`
+          `https://rinkeby.infura.io/v3/${infuraApiKey}`
         ),
       network_id: 4,
       gasPrice: 10e9,

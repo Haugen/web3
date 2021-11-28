@@ -6,7 +6,7 @@ const { abi, bytecode } = require('./compile');
 
 const provider = new HDWalletProvider(
   process.env.SEED_PHRASE,
-  'https://rinkeby.infura.io/v3/345c8902ca104e7296566df548c5a10d'
+  'https://rinkeby.infura.io/v3/345c8902ca104e7296566df548c5a10d' // Deprecated
 );
 
 const web3 = new Web3(provider);
