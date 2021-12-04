@@ -1,0 +1,11 @@
+{
+  "attributes": [
+    {
+      "trait_type": "generation",
+      "value": "0"
+    }
+  ],
+  "description": "A first NFT with metadata.",
+  "image": "https://gateway.pinata.cloud/ipfs/QmXtr3qsNC7SjKGSGsCS8WULEdJtgkT8vfCmCSEqQb1xay",
+  "name": "First"
+}

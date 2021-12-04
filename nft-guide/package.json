@@ -1,0 +1,22 @@
+{
+  "name": "nft-guide",
+  "version": "1.0.0",
+  "description": "Following the guide at https://ethereum.org/en/developers/tutorials/how-to-write-and-deploy-an-nft/ to create an NFT project with the following tools:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.3",
+    "ethers": "^5.5.2",
+    "hardhat": "^2.7.0"
+  },
+  "dependencies": {
+    "@alch/alchemy-web3": "^1.1.9",
+    "@openzeppelin/contracts": "^4.4.0",
+    "dotenv": "^10.0.0"
+  }
+}
