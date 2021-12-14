@@ -9,11 +9,8 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      const apiKey = 'YN422X22MT73712RCWGMX8ZQ11W7G2MEY2';
-      const etherscan = new ethers.providers.EtherscanProvider(
-        'mainnet',
-        apiKey
-      );
+      // const apiKey = process.env.REACT_APP_ETHERSCAN_API_KEY;
+      const etherscan = new ethers.providers.EtherscanProvider('mainnet');
 
       const wallet = '0x79308680fA5297401f335C39e7F440C35C6f6Fc5';
       const history = await etherscan.getHistory(wallet);
@@ -44,16 +41,19 @@ function App() {
     return hash.slice(0, 15) + '...';
   };
 
-  const formatTime = (timestamp) => {};
+  const formatTime = (timestamp) => {
+    const now = Date.now() / 1000;
+    return Math.floor((now - timestamp) / 60 / 60);
+  };
 
   const formatTxs = (txs) => {
     const formatted = [];
     for (const tx of txs) {
       formatted.push(
-        <tr>
+        <tr key={tx.txHash}>
           <td>{formatTx(tx.txHash)}</td>
           <td>{tx.block}</td>
-          <td>{tx.timestamp}</td>
+          <td>{formatTime(tx.timestamp)} hours ago</td>
           <td>{formatAddress(tx.from)}</td>
           <td>{formatAddress(tx.to)}</td>
         </tr>
