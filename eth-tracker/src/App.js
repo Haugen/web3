@@ -64,7 +64,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>ETH tracker</h1>
+      <h1 className="text-3xl font-bold">ETH tracker</h1>
       <p>Why use Etherscan when you have ETH tracker?</p>
       <table>
         <thead>
