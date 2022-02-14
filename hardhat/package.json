@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "solhint": "npx solhint table contracts/**/*.sol"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +16,7 @@
     "chai": "^4.3.6",
     "ethereum-waffle": "^3.4.0",
     "ethers": "^5.5.4",
-    "hardhat": "^2.8.4"
+    "hardhat": "^2.8.4",
+    "solhint": "^3.3.7"
   }
 }
